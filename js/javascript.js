@@ -11,6 +11,7 @@ $(document).ready(function(){
         let arrayvalor = valorstring.split('');
         let picas = [];
         let fijas = [];
+
         arrayvalor.forEach(element => {
             if(arraymagicnumber.some(arr=> arr==element)){
                 if(arrayvalor.indexOf(element) == arraymagicnumber.indexOf(element)){
@@ -22,10 +23,14 @@ $(document).ready(function(){
             };
         });
 
-
-        if(Tecla.keyCode == 13){
+        if(Tecla.keyCode == 13 && arrayvalor.length == 4){
             $('tbody').append('<tr><td>'+ valor + '</td><td>'+ picas.length + '</td><td>'+ fijas.length + '</td></tr>');
             $(this).val('');
+            $('#numero').removeClass('alert alert-danger text-danger validation');
+            $('span').removeClass('text-danger')
+        }else if(Tecla.keyCode == 13 && arrayvalor.length != 4){
+            $('#numero').addClass('alert alert-danger text-danger validation');
+            $('span').addClass('text-danger')
         };
     });
 });
