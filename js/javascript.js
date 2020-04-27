@@ -13,7 +13,12 @@ $(document).ready(function(){
             max = max-1
             min = min+1
         }
-        return numerosselected
+
+        if (numerosselected[0] == "0"){
+            return numerosselected.reverse()
+        }else {
+            return numerosselected
+        }
     }
 
     let arraymagicnumber = azar();
@@ -65,4 +70,3 @@ $(document).ready(function(){
         console.log(arraymagicnumber.join(''));
     })
 });
-
