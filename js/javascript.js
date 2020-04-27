@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //Funcion azar devuelve un array con cuatro numeros diferentes en formato string
     function azar() {
         let arraysnumbers  = [1,2,3,4,5,6,7,8,9,0]
         let numerosselected = []
@@ -17,6 +18,8 @@ $(document).ready(function(){
 
     let arraymagicnumber = azar();
     console.log(arraymagicnumber.join(''))
+
+    //Funcion para las teclas
     $('#numero').on('keyup', function(Tecla){
         arraymagicnumber;
         let valor = $(this).val();
@@ -37,6 +40,7 @@ $(document).ready(function(){
             };
         });
 
+        //Condicional cuando se presiona enter
         if(Tecla.keyCode == 13 && arryvalorsinrepetir.length == 4){
             if(fijas.length == 4){
                 $('#win').removeClass('modaloculto')
@@ -52,6 +56,7 @@ $(document).ready(function(){
         };
     });
 
+    //Funcion para recargar el juego despues de ganar
     $('#reload').on("click", function(){
         $('#win').removeClass('modalpersonal')
         $('#win').addClass('modaloculto')
